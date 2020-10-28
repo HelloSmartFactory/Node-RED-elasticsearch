@@ -1,0 +1,101 @@
+[
+  {
+    "id": "6fa90ba5.23aa14",
+    "type": "subflow",
+    "name": "Elasticsearch",
+    "info": "",
+    "category": "",
+    "in": [
+      {
+        "x": 50,
+        "y": 30,
+        "wires": [
+          {
+            "id": "fddd0364.7e4c1"
+          }
+        ]
+      }
+    ],
+    "out": [
+      {
+        "x": 580,
+        "y": 30,
+        "wires": [
+          {
+            "id": "f316100f.31b88",
+            "port": 0
+          }
+        ]
+      }
+    ],
+    "env": [],
+    "color": "#DDAA99"
+  },
+  {
+    "id": "9590e5f.47abd18",
+    "type": "http request",
+    "z": "6fa90ba5.23aa14",
+    "name": "Elasticsearch",
+    "method": "use",
+    "ret": "txt",
+    "paytoqs": false,
+    "url": "",
+    "tls": "",
+    "persist": false,
+    "proxy": "",
+    "authType": "",
+    "x": 340,
+    "y": 30,
+    "wires": [
+      [
+        "f316100f.31b88"
+      ]
+    ]
+  },
+  {
+    "id": "fddd0364.7e4c1",
+    "type": "change",
+    "z": "6fa90ba5.23aa14",
+    "name": "msg.headers",
+    "rules": [
+      {
+        "t": "delete",
+        "p": "headers",
+        "pt": "msg"
+      },
+      {
+        "t": "set",
+        "p": "headers",
+        "pt": "msg",
+        "to": "{\"Content-Type\":\"application/json\",\"Connection\":\"close\"}",
+        "tot": "json"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 170,
+    "y": 30,
+    "wires": [
+      [
+        "9590e5f.47abd18"
+      ]
+    ]
+  },
+  {
+    "id": "f316100f.31b88",
+    "type": "json",
+    "z": "6fa90ba5.23aa14",
+    "name": "",
+    "property": "payload",
+    "action": "",
+    "pretty": false,
+    "x": 490,
+    "y": 30,
+    "wires": [
+      []
+    ]
+  }
+]
