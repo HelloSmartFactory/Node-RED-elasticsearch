@@ -1,4 +1,4 @@
-# Raspi_Node-RED_elactic
+# Raspi_Node-RED_elastic
 前提条件：raspi上にElasticsearch、kibanaを構築済み
 
 node-redに読み込んでください。
